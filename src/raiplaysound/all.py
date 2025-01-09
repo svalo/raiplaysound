@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-from single import RaiParser
+from .single import RaiParser
 
 GENERI_URL = "https://www.raiplaysound.it/generi"
 SITEMAP_ENTRYPOINT = "https://www.raiplaysound.it/sitemap.archivio.indice.xml"
@@ -88,7 +88,7 @@ def main(skip_programmi: bool, skip_film: bool):
     dumper.create_feeds(skip_programmi, skip_film)
 
 
-if __name__ == "__main__":
+def run():
     parser = argparse.ArgumentParser(
         description="Genera un RSS per ogni programma disponibile su RaiPlaySound.",
         epilog="Info su https://github.com/timendum/raiplaysound/",
@@ -108,3 +108,7 @@ if __name__ == "__main__":
     _skip_programmi = not args.programma
     _skip_film = not args.film
     main(_skip_programmi, _skip_film)
+
+
+if __name__ == "__main__":
+    run()

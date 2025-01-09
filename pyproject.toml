@@ -1,0 +1,51 @@
+[project]
+name = "raiplaysound"
+description = "Creates XML files from raiplaysound.it web interface for use with standard podcast client"
+authors = [
+  { name="timendum", email="timedum@gmail.com" },
+]
+readme = "README.md"
+license-files = ["LICENSE"]
+
+dynamic = ["version"]
+
+requires-python = ">=3.8"
+
+dependencies = [
+  "beautifulsoup4==4.12.3",
+  "feedendum==0.4.0",
+  "lxml==5.3.0",
+  "requests==2.32.3",
+  "soupsieve==2.6",
+]
+
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+]
+
+keywords = [
+  "raiplaysound",
+  "podcast",
+  "rai",
+]
+
+[project.urls]
+Homepage = "http://timendum.github.io/raiplaysound/"
+"Source Code" = "https://github.com/timendum/raiplaysound"
+Issues = "https://github.com/timendum/raiplaysound/issues"
+
+
+[project.scripts]
+raiplaysound-all = "raiplaysound.all:run"
+raiplaysound-single = "raiplaysound.single:main"
+raiplaysound-index = "raiplaysound.index:main"
+
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
